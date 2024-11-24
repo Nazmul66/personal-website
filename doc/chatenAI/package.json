@@ -1,0 +1,19 @@
+{
+    "name": "chatenai",
+    "version": "1.0.0",
+    "description": "chatenai - AI SaaS Website + Dashboard Laravel 11 UI Kit",
+    "author": "PixcelsThemes",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "css:dev": "sass --watch public/assets/scss/style.scss:public/assets/css/style.css",
+        "css:build": "sass public/assets/scss/style.scss:public/assets/css/style.css",
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0",
+        "vite": "^5.0"
+    }
+}

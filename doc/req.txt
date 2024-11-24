@@ -1,0 +1,11 @@
+Yes that's fine. 
+
+For now if possible to make sure the two projects are connected as backend/frontend, 
+Discord login features, 
+account panel, 
+ability to control the landing page / menus from the admin panel, 
+ability to create custom pages (and assign them in the navigation bar / menu at the top - controllable through the admin panel)
+Also payment gateway logic + logging
+
+
+ref: https://www.justbuildthings.com

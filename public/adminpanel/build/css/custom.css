@@ -1,0 +1,301 @@
+.modal-content {
+    border: none !important;
+}
+.card_header {
+    padding: 20px 32px;
+    background: #fff;
+    box-shadow: 0px 5px 31px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    margin-bottom: 40px;
+}
+.card_body {
+    padding: 20px 32px;
+    background: #fff;
+    box-shadow: 0px 5px 31px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+}
+div.dt-container select.dt-input {
+    border: 2px solid #dee2e6 !important;
+    outline: none;
+    margin-right: 12px;
+    cursor: pointer;
+}
+div.dt-container .dt-search input {
+    border: 2px solid #dee2e6 !important;
+    border-radius: 4px !important;
+    margin-left: 16px !important;
+    outline: none !important;
+    caret-color: darkblue;
+}
+.dt-container .dt-paging .dt-paging-button {
+    border-radius: 10px !important;
+    border: 2px solid #f1f1f1 !important;
+    font-weight: 700;
+    cursor: pointer !important;
+}
+
+/* body div.dt-container .dt-paging .dt-paging-button.current,
+body div.dt-container .dt-paging .dt-paging-button.current:hover {
+    color: #fff !important;
+    background: #4458b8 !important;
+    cursor: pointer !important;
+}
+div.dt-container .dt-paging .dt-paging-button:active {
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+.dt-container .dt-paging .dt-paging-button:hover {
+    background: #4458b8 !important;
+    cursor: pointer !important;
+}
+div.dt-container .dt-paging .dt-paging-button.disabled {
+    color: #000 !important;
+    cursor: pointer !important;
+}
+body div.dt-container .dt-paging .dt-paging-button.disabled:hover,
+body div.dt-container .dt-paging .dt-paging-button.disabled:active {
+    color: #fff !important;
+    cursor: pointer !important;
+} */
+button:focus {
+    outline: 1px dotted;
+    outline: none !important;
+    cursor: pointer !important;
+}
+table.dataTable td.dt-type-numeric,
+table.dataTable th.dt-type-numeric {
+    text-align: left !important;
+}
+.table-responsive {
+    overflow-x: inherit !important;
+}
+
+/* Bootstrap CSS */
+/* .btn-close {
+    border: none !important;
+    background: transparent !important;
+    color: #fff !important;
+    font-size: 20px !important;
+} */
+.view_modal_content {
+    display: flex;
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+}
+.message_content {
+    display: flex;
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+}
+.message_content label {
+    width: 50%;
+    margin: 0;
+}
+.view_modal_content label {
+    width: 50%;
+    margin: 0;
+}
+.message_content span,
+.message_content a {
+    width: 50%;
+}
+.view_modal_content span,
+.view_modal_content a {
+    width: 50%;
+}
+.modal-footer {
+    padding: 0 0.75rem 0.75rem 0.75rem !important;
+    border-top: none;
+}
+table.dataTable th.dt-type-numeric,
+table.dataTable th.dt-type-date,
+table.dataTable td.dt-type-numeric,
+table.dataTable td.dt-type-date {
+    text-align: left !important;
+}
+
+/* global css */
+.breadcrumb {
+    padding: 0.4rem 1rem !important;
+}
+.table > thead {
+    border-top: 1px solid #eff2f7 !important;
+}
+.alignment_margin {
+    margin: 0 30px;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused),
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-blurred) {
+    background: transparent !important;
+}
+.choices__inner {
+    background-color: transparent !important;
+}
+.choices__input {
+    background-color: transparent !important;
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+    .message_content {
+        flex-direction: column;
+    }
+    .message_content label {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .view_modal_content label {
+        width: 50%;
+        font-size: 14px;
+    }
+    .view_modal_content span,
+    .view_modal_content a {
+        font-size: 14px;
+        width: 80%;
+    }
+    .message_content span,
+    .message_content a {
+        width: 100%;
+    }
+    .alignment_margin {
+        margin: 0;
+    }
+
+    div.dt-container div.dt-layout-row:not(.dt-layout-table) {
+        display: flex !important;
+    }
+    div.dt-container select.dt-input {
+        font-size: 13px;
+    }
+    label:not(.form-check-label):not(.custom-file-label) {
+        font-size: 13px;
+        /* display: none; */
+    }
+    div.dt-container .dt-search input {
+        margin-left: 8px !important;
+        padding: 8px !important;
+    }
+    div.dt-container select.dt-input {
+        padding: 8px !important;
+    }
+    table.dataTable thead > tr > th {
+        white-space: nowrap;
+    }
+    table.dataTable > tbody > tr {
+        white-space: nowrap;
+    }
+    div.dt-container div.dt-layout-row div.dt-layout-cell {
+        overflow-x: scroll;
+    }
+    div.dt-container
+        div.dt-layout-row:not(.dt-layout-table)
+        div.dt-layout-cell
+        > * {
+        font-size: 12px;
+    }
+    div.dt-container .dt-paging .dt-paging-button.disabled {
+        font-size: 12px;
+    }
+    body div.dt-container .dt-paging .dt-paging-button.current,
+    body div.dt-container .dt-paging .dt-paging-button.current:hover {
+        font-size: 12px;
+    }
+    .dt-length label,
+    .dt-search label {
+        display: none !important;
+    }
+    .breadcrumb {
+        padding: 0.4rem 1rem !important;
+        margin-bottom: 0;
+    }
+}
+
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused),
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-blurred) {
+    border-color: var(--ck-color-base-border);
+    height: 320px !important;
+}
+.badge_permission {
+    background-color: #556ee6;
+    color: #fff;
+    padding: 2px 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 700;
+}
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+/* Hide the native checkbox */
+.custom-control-input {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+}
+
+/* Checkbox background and border for the inactive state */
+.custom-control-label::before {
+    position: absolute;
+    top: 3px;
+    left: -1.5rem;
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    content: "";
+    background-color: #f0f0f0;
+    border: #adb5bd solid 2px;
+    border-radius: 4px;
+    box-shadow: inset 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Checked state */
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: inset 0 0 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+/* Checkmark for checked state */
+.custom-control-label::after {
+    position: absolute;
+    top: 0.45rem;
+    left: -1.25rem;
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    content: "";
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' class='bi bi-check-lg' viewBox='0 0 16 16'%3E%3Cpath d='M13.485 2.5a.75.75 0 0 1 1.03 1.09l-8.25 9a.75.75 0 0 1-1.076.02L1.74 8.952a.75.75 0 1 1 1.06-1.06l3.197 3.196 7.488-8.588z'/%3E%3C/svg%3E")
+        no-repeat center center;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Show checkmark when checked */
+.custom-control-input:checked ~ .custom-control-label::after {
+    opacity: 1;
+}
+
+/* Hover effect */
+/* .custom-control-label:hover::before {
+    border-color: #007bff;
+} */
+
+/* Custom styles for the 'Active' state */
+.custom-control-input:active ~ .custom-control-label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
