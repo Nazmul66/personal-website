@@ -94,20 +94,8 @@
                             </a>
                         </li>
                         @endif
-                        @if (Auth::user()->can('admin.content-generator.index'))
-                        <li class="@yield('content_generator')">
-                            <a href="{{ route('admin.content-generator.index') }}" class="waves-effect">
-                                <span key="t-Content">Content Generation</span>
-                            </a>
-                        </li>
-                        @endif
-                        @if (Auth::user()->can('admin.how-works.index'))
-                        <li class="@yield('how_works')">
-                            <a href="{{ route('admin.how-works.index') }}" class="waves-effect">
-                                <span key="t-contacts">How it works</span>
-                            </a>
-                        </li>
-                        @endif
+
+
                         @if (Auth::user()->can('admin.about.index'))
                         <li>
                             <a href="{{ route('admin.about.index') }}" class="waves-effect">
@@ -117,12 +105,24 @@
                         @endif
 
                         {{-- @if (Auth::user()->can('admin.promotions.index')) --}}
-                        <li class="@yield('promotions')">
+                        <li class="@yield('services')">
                             <a href="{{ route('admin.services.index') }}" class="waves-effect">
                                 <span key="t-contacts">Services Section</span>
                             </a>
                         </li>
                         {{-- @endif --}}
+
+                        <li class="@yield('testimonial')">
+                            <a href="{{ route('admin.testimonials.index') }}" class="waves-effect">
+                                <span key="t-contacts">Testimonial Section</span>
+                            </a>
+                        </li>
+
+                        <li class="@yield('project')">
+                            <a href="{{ route('admin.projects.index') }}" class="waves-effect">
+                                <span key="t-contacts">Projects Section</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 @endif

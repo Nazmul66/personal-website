@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\InstantContentController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ContentGeneratorController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\AiContentController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AdminController;
@@ -199,6 +201,30 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::post('/section-update/{id}', [ServiceController::class, 'sectionupdate'])->name('section.update');
         Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete');
     });
+
+
+    // Testimonials
+    Route::group(['prefix' => 'testimonials', 'as' => 'testimonials.'], function () {
+        Route::get('/', [TestimonialController::class, 'index'])->name('index');
+        Route::get('/create', [TestimonialController::class, 'create'])->name('create');
+        Route::post('/store', [TestimonialController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [TestimonialController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [TestimonialController::class, 'update'])->name('update');
+        Route::post('/section-update/{id}', [TestimonialController::class, 'sectionupdate'])->name('section.update');
+        Route::get('/delete/{id}', [TestimonialController::class, 'delete'])->name('delete');
+    });
+
+
+        // Projects
+        Route::group(['prefix' => 'projects', 'as' => 'projects.'], function () {
+            Route::get('/', [ProjectController::class, 'index'])->name('index');
+            Route::get('/create', [ProjectController::class, 'create'])->name('create');
+            Route::post('/store', [ProjectController::class, 'store'])->name('store');
+            Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+            Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
+            Route::post('/section-update/{id}', [ProjectController::class, 'sectionupdate'])->name('section.update');
+            Route::get('/delete/{id}', [ProjectController::class, 'delete'])->name('delete');
+        });
 
     // Generator Tool
 

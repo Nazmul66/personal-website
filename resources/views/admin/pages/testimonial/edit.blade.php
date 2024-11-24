@@ -4,7 +4,7 @@
     {{ $title }}
 @endsection
 
-@section('services', 'mm-active')
+@section('testimonial', 'mm-active')
 @push('css')
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" /> --}}
 @endpush
@@ -13,7 +13,7 @@
     {{-- Breadcrumb --}}
     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
         <h4 class="mb-sm-0 font-size-18">{{ $title }}</h4>
-        <a href="{{ route('admin.services.index') }}" class="btn btn-primary waves-effect waves-light">Back</a>
+        <a href="{{ route('admin.testimonials.index') }}" class="btn btn-primary waves-effect waves-light">Back</a>
     </div>
 
 
@@ -23,25 +23,25 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <form action="{{ route('admin.services.update', $row->id) }}" method="POST"
+                    <form action="{{ route('admin.testimonials.update', $row->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="icon" class="form-label">Icon <span
+                                    <label for="name" class="form-label">Name <span
                                         class="text-danger">*</span></label>
-                                    <input name="icon" id="icon" placeholder="Icon here...." type="text" class="form-control" value="{{ old('icon', $row->icon) }}">
+                                    <input name="name" id="name" placeholder="Name here...." type="text" class="form-control" value="{{ old('name', $row->name) }}">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="title" class="form-label">Title <span
+                                    <label for="designation" class="form-label">Designation <span
                                             class="text-danger">*</span></label>
-                                    <input name="title" id="title" placeholder="Title here...." type="text"
-                                        class="form-control" value="{{ old('title', $row->title) }}">
+                                    <input name="designation" id="designation" placeholder="Designation here...." type="text"
+                                        class="form-control" value="{{ old('designation', $row->designation) }}">
                                 </div>
                             </div>
 
