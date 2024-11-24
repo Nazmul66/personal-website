@@ -115,13 +115,14 @@
                             </a>
                         </li>
                         @endif
-                        @if (Auth::user()->can('admin.promotions.index'))
+
+                        {{-- @if (Auth::user()->can('admin.promotions.index')) --}}
                         <li class="@yield('promotions')">
-                            <a href="{{ route('admin.promotions.index') }}" class="waves-effect">
-                                <span key="t-contacts">Promotion Section</span>
+                            <a href="{{ route('admin.services.index') }}" class="waves-effect">
+                                <span key="t-contacts">Services Section</span>
                             </a>
                         </li>
-                        @endif
+                        {{-- @endif --}}
                     </ul>
                 </li>
                 @endif

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CustomSectionController;
 use App\Http\Controllers\Admin\InstantContentController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ContentGeneratorController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\AiContentController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AdminController;
@@ -189,14 +190,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     });
 
     // Services
-    Route::group(['prefix' => 'promotions', 'as' => 'promotions.'], function () {
-        Route::get('/', [PromotionController::class, 'index'])->name('index');
-        Route::get('/create', [PromotionController::class, 'create'])->name('create');
-        Route::post('/store', [PromotionController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [PromotionController::class, 'edit'])->name('edit');
-        Route::post('/update/{id}', [PromotionController::class, 'update'])->name('update');
-        Route::post('/section-update/{id}', [PromotionController::class, 'sectionupdate'])->name('section.update');
-        Route::get('/delete/{id}', [PromotionController::class, 'delete'])->name('delete');
+    Route::group(['prefix' => 'services', 'as' => 'services.'], function () {
+        Route::get('/', [ServiceController::class, 'index'])->name('index');
+        Route::get('/create', [ServiceController::class, 'create'])->name('create');
+        Route::post('/store', [ServiceController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [ServiceController::class, 'update'])->name('update');
+        Route::post('/section-update/{id}', [ServiceController::class, 'sectionupdate'])->name('section.update');
+        Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete');
     });
 
     // Generator Tool

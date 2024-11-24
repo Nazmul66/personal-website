@@ -20,51 +20,31 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <form action="{{ route('admin.promotions.section.update', $section->id) }}" method="POST"
+                    <form action="{{ route('admin.services.section.update', $section->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="header" class="form-label">Section Header <span
-                                            class="text-danger">*</span></label>
-                                    <input name="header" id="header" placeholder="Write section header" type="text"
-                                        class="form-control" value="{{ old('header', $section->title) }}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label">Service Title <span
+                                                class="text-danger">*</span></label>
+                                        <input name="title" id="title" placeholder="Write service title" type="text"
+                                            class="form-control" value="{{ old('title', $section->title) }}">
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="subtitle" class="form-label">Service Subtitle <span
+                                                class="text-danger">*</span></label>
+                                        <input name="subtitle" id="subtitle" placeholder="Write service subtitle" type="text"
+                                            class="form-control" value="{{ old('subtitle', $section->subtitle) }}">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="title" class="form-label">Section Title <span
-                                            class="text-danger">*</span></label>
-                                    <input name="title" id="title" placeholder="Write section title" type="text"
-                                        class="form-control" value="{{ old('title', $section->subtitle) }}">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="button_text" class="form-label">Button Text <span
-                                            class="text-danger">*</span></label>
-                                    <input name="button_text" id="button_text" placeholder="Write button text here....."
-                                        type="text" class="form-control"
-                                        value="{{ old('button_text', $section->button_text) }}">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="button_link" class="form-label">Button link <span
-                                            class="text-danger">*</span></label>
-                                    <input name="button_link" id="button_link" placeholder="Button link here....."
-                                        type="url" class="form-control"
-                                        value="{{ old('button_link', $section->button_link) }}">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="video_link" class="form-label">Is Active <span
@@ -73,14 +53,6 @@
                                         <option value="1" {{ $section->is_active == 1 ? 'selected' : '' }}>Yes</option>
                                         <option value="0" {{ $section->is_active == 0 ? 'selected' : '' }}>No</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="contents" class="form-label">Section Content <span
-                                            class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="content" id="contents" placeholder="Write section content here...."
-                                        rows="8">{{ old('content', $section->content) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -100,8 +72,7 @@
         <div class="card-body">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h4 class="mb-sm-0 font-size-18">Promotions List</h4>
-                <a href="{{ route('admin.promotions.create') }}" class="btn btn-primary waves-effect waves-light">Add
-                    New</a>
+                <a href="{{ route('admin.services.create') }}" class="btn btn-primary waves-effect waves-light">Add New</a>
             </div>
 
             <div class="table-responsive">
@@ -109,9 +80,9 @@
                     <thead>
                         <tr>
                             <th>#SL.</th>
+                            <th>Image</th>
                             <th>Icon</th>
                             <th>Title</th>
-                            <th>hot</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -122,19 +93,13 @@
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td class="text-center">
-                                    <a href="{{ getPhoto($row->icon) }}" target="__blank">
-                                        <img src="{{ getPhoto($row->icon) }}" alt="icon"
-                                            style="width: 40px; height: 40px; object-fit: contain;">
+                                    <a href="{{ getPhoto($row->image) }}" target="__blank">
+                                        <img src="{{ getPhoto($row->image) }}" alt="icon"
+                                            style="width: 70px; height: 70px; object-fit: contain;">
                                     </a>
                                 </td>
+                                <td>{{ $row->icon }}</td>
                                 <td>{{ $row->title }}</td>
-                                <td>
-                                    @if ($row->hot == 1)
-                                        <span class="text-success">Yes</span>
-                                    @else
-                                        <span class="text-danger">No</span>
-                                    @endif
-                                </td>
                                 <td>
                                     @if ($row->status == 1)
                                         <span class="text-success">Active</span>
@@ -157,14 +122,14 @@
                                             </li>
 
                                             <li>
-                                                <a href="{{ route('admin.promotions.edit', $row->id) }}"
+                                                <a href="{{ route('admin.services.edit', $row->id) }}"
                                                     class="dropdown-item" style="font-size: 16px;"><i
                                                         class='bx bxs-edit text-info me-2'></i>Edit</a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item"
-                                                    href="{{ route('admin.promotions.delete', $row->id) }}"
+                                                    href="{{ route('admin.services.delete', $row->id) }}"
                                                     style="font-size: 16px;" id="deleteData"><i
                                                         class='bx bxs-trash text-danger'></i> Delete</a>
                                             </li>
@@ -179,7 +144,7 @@
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header bg-primary text-white">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">View Promotion List
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">View Service List
                                             </h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -187,11 +152,16 @@
 
                                         <div class="modal-body">
                                             <div class="view_modal_content">
-                                                <label>Icon : </label>
-                                                <a href="{{ getPhoto($row->icon) }}" target="__blank">
-                                                    <img src="{{ getPhoto($row->icon) }}" alt="icon"
-                                                        style="width: 40px; height: 40px; object-fit: contain;">
+                                                <label>Image : </label>
+                                                <a href="{{ getPhoto($row->image) }}" target="__blank">
+                                                    <img src="{{ getPhoto($row->image) }}" alt="icon"
+                                                        style="width: 70px; height: 70px; object-fit: contain;">
                                                 </a>
+                                            </div>
+
+                                            <div class="view_modal_content">
+                                                <label>Icon : </label>
+                                                <span class="text-dark">{{ $row->icon }}</span>
                                             </div>
 
                                             <div class="view_modal_content">
@@ -200,25 +170,8 @@
                                             </div>
 
                                             <div class="view_modal_content">
-                                                <label>Button Text : </label>
-                                                <span class="text-dark">{{ $row->button_text }}</span>
-                                            </div>
-
-                                            <div class="view_modal_content">
-                                                <label>Button Link : </label>
-                                                <span class="text-dark">
-                                                    <a href="{{ $row->button_link }}" target="__blank">
-                                                        {{ $row->button_link }}</a>
-                                                </span>
-                                            </div>
-
-                                            <div class="view_modal_content">
-                                                <label>Hot : </label>
-                                                @if ($row->hot == 1)
-                                                    <span class="text-success">Yes</span>
-                                                @else
-                                                    <span class="text-danger">No</span>
-                                                @endif
+                                                <label>Description : </label>
+                                                <span class="text-dark">{{ $row->description }}</span>
                                             </div>
 
                                             <div class="view_modal_content">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Promotion;
+use App\Models\Service;
 use App\Models\HomePage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
-    protected $content;
+    protected $service;
     public $user;
 
-    public function __construct(Promotion $content)
+    public function __construct(Service $service)
     {
-        $this->content     = $content;
+        $this->service     = $service;
         $this->middleware(function ($request, $next) {
             $this->user = Auth::guard('admin')->user();
             return $next($request);
@@ -30,10 +30,10 @@ class ServiceController extends Controller
             abort(403, 'Sorry !! You are Unauthorized.');
         }
 
-        $data['title'] = "Manage Promotion Section";
-        $data['section'] = HomePage::where('url_slug', 'promotion-section')->first();
-        $data['rows'] = Promotion::orderBy('order_id', 'asc')->get();
-        return view('admin.pages.promotion_section.index', $data);
+        $data['title']    = "Manage Service Section";
+        $data['section']  = HomePage::where('url_slug', 'service-section')->first();
+        $data['rows']     = Service::orderBy('id', 'asc')->get();
+        return view('admin.pages.service_section.index', $data);
     }
 
     public function create()
@@ -41,8 +41,8 @@ class ServiceController extends Controller
         // if (is_null($this->user) || !$this->user->can('admin.faq.create')) {
         //     abort(403, 'Sorry !! You are Unauthorized.');
         // }
-        $data['title'] = "Create Promotions";
-        return view('admin.pages.promotion_section.create', $data);
+        $data['title'] = "Create Services";
+        return view('admin.pages.service_section.create', $data);
     }
 
     public function store(Request $request)
@@ -52,47 +52,38 @@ class ServiceController extends Controller
         // }
 
         $request->validate([
-            'icon'   => 'required',
-            'title'  => 'required|max:155|unique:promotions,title',
-            'button_text' => 'required|max:128',
-            'button_link' => 'required',
-            'status' => 'required',
-            'hot' => 'required',
+            'icon'          => 'required',
+            'title'         => 'required|max:155|unique:services,title',
+            'description'   => 'required',
+            'image'         => 'required|image|mimes:png,jpg,jpeg,webp',
         ]);
 
         DB::beginTransaction();
         try {
-            $data                   = new Promotion();
-            $data->title            = $request->title;
-            $data->button_text      = $request->button_text;
-            $data->button_link      = $request->button_link;
+            $service                   = new Service();
+            $service->icon             = $request->icon;
+            $service->title            = $request->title;
+            $service->description      = $request->description;
+            $service->status           = $request->status;
 
-            if ($request->hot == 1) {
-                Promotion::where('hot', 1)->update(['hot' => 0]);
-            }
-
-            $data->hot              = $request->hot;
-            $data->status           = $request->status;
-            $data->order_id         = Promotion::max('order_id') ? Promotion::max('order_id') + 1 : 1;
-
-            if( $request->hasFile('icon') ){
-                $images = $request->file('icon');
+            if( $request->hasFile('image') ){
+                $images = $request->file('image');
                 $imageName          =  rand(1, 99999999) . '.' . $images->getClientOriginalExtension();
-                $imagePath          = 'adminPanel/images/promotions/';
+                $imagePath          = 'adminPanel/images/services/';
                 $images->move($imagePath, $imageName);
-                $data->icon        =  $imagePath . $imageName;
+                $service->image        =  $imagePath . $imageName;
             }
+            $service->save();
 
-            $data->save();
         } catch (\Exception $e) {
             dd($e);
             DB::rollback();
-            Toastr::error("Promotion Create Error", 'Error', ["positionClass" => "toast-top-right"]);
+            Toastr::error("Services Create Error", 'Error', ["positionClass" => "toast-top-right"]);
             return back();
         }
         DB::commit();
-        Toastr::success("Promotion Create Successfully", 'Success', ["positionClass" => "toast-top-right"]);
-        return redirect()->route('admin.promotions.index');
+        Toastr::success("Services Create Successfully", 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->route('admin.services.index');
     }
 
 
@@ -102,9 +93,9 @@ class ServiceController extends Controller
         //     abort(403, 'Sorry !! You are Unauthorized.');
         // }
 
-        $data['title'] = "Update Promotions";
-        $data['row'] = Promotion::findOrFail($id);
-        return view('admin.pages.promotion_section.edit', $data);
+        $data['title'] = "Update services";
+        $data['row'] = Service::findOrFail($id);
+        return view('admin.pages.service_section.edit', $data);
     }
 
     public function update(Request $request, $id)
@@ -113,48 +104,46 @@ class ServiceController extends Controller
         //     abort(403, 'Sorry !! You are Unauthorized.');
         // }
 
+        // dd($request->all(),  $id);
+
         $request->validate([
-            'title'  => 'required|max:155|unique:promotions,title,'. $id,
-            'button_text' => 'required|max:128',
-            'button_link' => 'required',
-            'order_id' => 'required|integer|unique:promotions,order_id,'. $id,
-            'status' => 'required',
-            'hot' => 'required',
+            'icon'          => 'required',
+            'title'         => 'required|max:155|unique:services,title,'. $id,
+            'description'   => 'required|max:128',
+            'image'         => 'image|mimes:png,jpg,jpeg,webp',
         ]);
 
         DB::beginTransaction();
         try {
-            $data                   = Promotion::findOrFail($id);
+            $service                   = Service::findOrFail($id);
 
-            $data->title            = $request->title;
-            $data->button_text      = $request->button_text;
-            $data->button_link      = $request->button_link;
-            if ($request->hot == 1) {
-                Promotion::where('hot', 1)->update(['hot' => 0]);
-            }
+            $service->icon             = $request->icon;
+            $service->title            = $request->title;
+            $service->description      = $request->description;
+            $service->status           = $request->status;
 
-            $data->hot              = $request->hot;
-            $data->status           = $request->status;
-            $data->order_id         = $request->order_id;
+            if( $request->hasFile('image') ){
+                $images = $request->file('image');
 
-            if( $request->hasFile('icon') ){
-                $images = $request->file('icon');
+                if( !empty($service->image) && file_exists($service->image) ){
+                    unlink($service->image);
+                }
+
                 $imageName          =  rand(1, 99999999) . '.' . $images->getClientOriginalExtension();
-                $imagePath          = 'adminPanel/images/promotions/';
+                $imagePath          = 'adminPanel/images/services/';
                 $images->move($imagePath, $imageName);
-                $data->icon        =  $imagePath . $imageName;
+                $service->image     =  $imagePath . $imageName;
             }
-
-            $data->save();
+            $service->save();
         } catch (\Exception $e) {
             DB::rollback();
             dd($e);
-            Toastr::error("Promotion Update Error", 'Error', ["positionClass" => "toast-top-right"]);
+            Toastr::error("Services Update Error", 'Error', ["positionClass" => "toast-top-right"]);
             return back();
         }
         DB::commit();
-        Toastr::success("Promotion Update Successfully", 'Success', ["positionClass" => "toast-top-right"]);
-        return redirect()->route('admin.promotions.index');
+        Toastr::success("Services Update Successfully", 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->route('admin.services.index');
     }
 
     public function sectionupdate(Request $request, $id)
@@ -166,34 +155,27 @@ class ServiceController extends Controller
         // dd( $request->all());
 
         $request->validate([
-            'header'      => 'required',
             'title'       => 'required',
-            'content'     => 'required',
-            'is_active'   => 'required',
-            'button_text' => 'required',
-            'button_link' => 'required',
+            'subtitle'    => 'required',
         ]);
 
         DB::beginTransaction();
 
         try {
             $homePage                   = HomePage::findOrFail($id);
-            $homePage->title            = $request->header;
-            $homePage->subtitle         = $request->title;
-            $homePage->content          = $request->content;
-            $homePage->button_text      = $request->button_text;
-            $homePage->button_link      = $request->button_link;
+            $homePage->title            = $request->title;
+            $homePage->subtitle         = $request->subtitle;
             $homePage->is_active        = $request->is_active;
             $homePage->save();
 
         } catch (\Exception $e) {
             // dd($e);
             DB::rollback();
-            Toastr::error("Promotion section updated error", 'Error', ["positionClass" => "toast-top-right"]);
+            Toastr::error("Service section updated error", 'Error', ["positionClass" => "toast-top-right"]);
             return back();
         }
         DB::commit();
-        Toastr::success("Promotion section updated successfully", 'Success', ["positionClass" => "toast-top-right"]);
+        Toastr::success("Service section updated successfully", 'Success', ["positionClass" => "toast-top-right"]);
         return redirect()->back();
     }
 
@@ -203,10 +185,15 @@ class ServiceController extends Controller
         //     abort(403, 'Sorry !! You are Unauthorized.');
         // }
 
-        $Content = Promotion::findOrFail($id);
-        $Content->delete();
+        $service = Service::findOrFail($id);
 
-        Toastr::success("Promotion deleted successfully", 'Success', ["positionClass" => "toast-top-right"]);
+        if( !empty($service->image) && file_exists($service->image) ){
+            @unlink($service->image);
+        }
+
+        $service->delete();
+
+        Toastr::success("Services deleted successfully", 'Success', ["positionClass" => "toast-top-right"]);
         return redirect()->back();
     }
 }
