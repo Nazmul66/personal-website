@@ -5,789 +5,822 @@
 @endpush
 
 @push('add-css')
+
 @endpush
 
 @section('body-content')
-    @if($banner_section->is_active == 1)
-    <!-- Start Slider Area  -->
-        <div class="slider-area slider-style-1 variation-default slider-bg-image bg-banner1" data-black-overlay="1">
-            <!-- <div class="bg-blend-top bg_dot-mask"></div> -->
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="inner text-center mt--60">
-                            <h1 class="title display-one">{{$banner_section->title}}</h1>
-                            {{-- <h1 class="title display-one">Unlock The Power Of <br>
-                                <span class="theme-gradient">CraftedFate AI</span> With <br><span class="color-off">Smartest
-                                    AI</span>
-                            </h1> --}}
-                            <p class="b1 desc-text">{{$banner_section->subtitle}}</p>
-                            <div class="button-group">
-                                <a class="btn-default bg-light-gradient btn-large" href="{{ $banner_section->button_link }}">
-                                    <div class="has-bg-light"></div>
-                                    <span>{{ $banner_section->button_text }}</span>
-                                </a>
-                            </div>
-                            <p class="color-gray mt--5">{!! $banner_section->content !!}</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-xl-10 order-1 order-lg-2">
-                        <div class="frame-image frame-image-bottom bg-flashlight video-popup icon-center">
-                            <img src="{{ getPhoto($banner_section->image_path) }}" alt="Banner Images">
-                            <div class="video-icon">
-                                <a class="btn-default rounded-player popup-video border bg-white-dropshadow"
-                                    href="{{ asset($banner_section->video_link) }}">
-                                    <span><i class="feather-play"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+    <!--============================
+        BANNER START
+    ==============================-->
+    <section
+      class="tf__banner pt_100 pl_60 pr_60 bg-fixed"
+      style="background: url({{ asset('frontend/images/banner_bg.jpg') }})"
+     >
+      <div class="container-fluid h-100">
+        <div class="row align-items-center h-100">
+          <div class="col-xxl-6 col-xl-6">
+            <div class="tf__banner_img">
+              <img
+                src="{{ asset('frontend/images/banner_img.png') }}"
+                alt="portfolio img"
+                class="img-fluid w-100"
+              />
             </div>
-            <div class="chatenai-separator has-position-bottom">
-                <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-top.svg') }}"
-                    alt="separator">
-                <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-top.svg') }}"
-                    alt="separator">
+          </div>
+          <div class="col-xxl-5 col-xl-6 ms-auto">
+            <div class="tf__banner_text">
+              <h3 data-text-animation="rotate-in">Hello I'm Mezbah</h3>
+              <h1 data-text-animation="rotate-in">
+                CREATIVE DESIGNER BASED IN USA
+              </h1>
+              <p>
+                As a passionate UI/UX Designer, I thrive on creating beautiful
+                and intuitive digital experiences that delight users.
+              </p>
+
+              <ul class="d-flex flex-wrap">
+                <li>
+                  <a
+                    href="#"
+                    class="tf__common_btn d-flex align-items-center download_btn"
+                    >Download Cv <i class='bx bx-download'></i></a>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-    <!-- End Slider Area  -->
-    @endif
+      </div>
+    </section>
+    <!--============================
+        BANNER END
+    ==============================-->
 
-    @if($content_generation_section->is_active == 1)
-    <!-- Start Service__Style--1 Area  -->
-    <div class="rainbow-service-area rainbow-section-gap">
+
+    <!--============================
+        ABOUT START
+    ==============================-->
+    <section class="tf__about pt_150" id="about">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                        <h4 class="subtitle">
-                            <span class="theme-gradient">{{$content_generation_section->title}}</span>
-                        </h4>
-                        <h2 class="title w-600 mb--20">{{$content_generation_section->subtitle}}</h2>
-                        <p class="description b1">{!! $content_generation_section->content !!}</p>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-xl-4 col-lg-4">
+              <div class="tf__common_heading tf__about_text">
+                <h5>About Me</h5>
+                <h2 data-text-animation="rotate-in" data-split="word">
+                  Visual Journey through my Portfolio
+                </h2>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                  quae ab illonge inventore veritatis et quasi architecto beatae
+                  vitae dicta sunt explicabo. Nemo enim ipsam
+                </p>
+              </div>
             </div>
-
-            <div class="row row--15 service-wrapper">
-                @foreach ($content_generators as $row)
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
-                        <div
-                            class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                            <div class="icon">
-                                {!! $row->icon !!}
-                            </div>
-                            <div class="content">
-                                <h4 class="title w-600">
-                                    <a href="#">{{ $row->title }}</a>
-                                </h4>
-                                <p class="description b1 color-gray mb--0">{{ $row->description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-                {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
-                    <div
-                        class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                        <div class="icon">
-                            <i class="feather-activity"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title w-600">
-                                <a href="#">Effortless Content AI</a>
-                            </h4>
-                            <p class="description b1 color-gray mb--0">Let our AI-powered service take the hard work out of
-                                content creation. Get started today with AI.</p>
-                        </div>
-                    </div>
-                </div> --}}
-
-                {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700"
-                    data-sal-delay="100">
-                    <div
-                        class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                        <div class="icon">
-                            <i class="feather-cast"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title w-600">
-                                <a href="#">Your Words, Our Tech</a>
-                            </h4>
-                            <p class="description b1 color-gray mb--0">Discover how AI can transform your ideas into
-                                engaging with our qualitifull service for a better content.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700"
-                    data-sal-delay="200">
-                    <div
-                        class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                        <div class="icon">
-                            <i class="feather-map"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title w-600">
-                                <a href="#">AI-Powered Writing </a>
-                            </h4>
-                            <p class="description b1 color-gray mb--0">Access AI-generated content for your blogs, websites,
-                                and more with our qualitifull convenient service.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
-                    <div
-                        class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                        <div class="icon">
-                            <i class="feather-loader"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title w-600">
-                                <a href="#">AI Generation Simple</a>
-                            </h4>
-                            <p class="description b1 color-gray mb--0">Experience the ease of content creation with our AI
-                                service. Write less, achieve more.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700"
-                    data-sal-delay="100">
-                    <div
-                        class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                        <div class="icon">
-                            <i class="feather-speaker"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title w-600">
-                                <a href="#">Quality AI Content</a>
-                            </h4>
-                            <p class="description b1 color-gray mb--0">Get professionally written content in no time with
-                                our AI service. Quality meets speed.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700"
-                    data-sal-delay="200">
-                    <div
-                        class="service service__style--1 bg-color-blackest radius mt--25 text-center rbt-border-none variation-4 bg-flashlight">
-                        <div class="icon">
-                            <i class="feather-terminal"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title w-600">
-                                <a href="#">Your Writing Assistant</a>
-                            </h4>
-                            <p class="description b1 color-gray mb--0">Collaborate with AI to generate content that
-                                resonates with your audience. Try it now.</p>
-                        </div>
-                    </div>
-                </div> --}}
+            <div class="col-xl-8 col-lg-8">
+              <div class="tf__about_img">
+                <img
+                  src="{{ asset('frontend/images/about_img.jpg') }}"
+                  alt="about img"
+                  class="img-fluid w-100 parallax-image"
+                />
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <!-- End Service__Style--1 Area  -->
+    </section>
+    <!--============================
+        ABOUT END
+    ==============================-->
 
-    <!-- Start Seperator Area  -->
-    <div class="chatenai-separator">
-        <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-top.svg') }}" alt="separator">
-        <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-top.svg') }}"
-            alt="separator">
-    </div>
-    <!-- End Seperator Area  -->
-    @endif
 
-    @if($how_works_section->is_active == 1)
-    <!-- Start Timeline-Style-Four  -->
-    <div class="rainbow-timeline-area rainbow-section-gap">
+    <!--============================
+        SERVICE START
+    ==============================-->
+    <section class="tf__service pt_145" id="service">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                        <h4 class="subtitle ">
-                            <span class="theme-gradient">{{ $how_works_section->title }}</span>
-                        </h4>
-                        <h2 class="title w-600 mb--20">{{ $how_works_section->subtitle }}</h2>
-                    </div>
-                </div>
+          <div class="row justify-content-center">
+            <div class="col-xl-9">
+              <div class="tf__common_heading tf__common_heading2">
+                <h5>My service</h5>
+                <h2 data-text-animation="rotate-in" data-split="word">
+                  Pushing Boundaries: My Portfolio of Limitless Ideas
+                </h2>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1 mt--30">
-                    <div class="timeline-style-two bg-flashlight bg-color-blackest">
-                        <div class="row row--0">
-                            @foreach ($directions as $key => $row)
-                                <div class="col-lg-4 col-md-4 rainbow-timeline-single dark-line">
-                                    <div class="rainbow-timeline">
-                                        <h6 class="title" data-sal="slide-up" data-sal-duration="700" data-sal-delay="200">
-                                            {{$key+1}}. {{ $row->title }}</h6>
-                                        <div class="progress-line">
-                                            <div class="line-inner"></div>
-                                        </div>
-                                        <div class="progress-dot">
-                                            <div class="dot-level">
-                                                <div class="dot-inner"></div>
-                                            </div>
-                                        </div>
-                                        <p class="description" data-sal="slide-up" data-sal-duration="700" data-sal-delay="300">
-                                            {{ $row->description }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="button-group mt--50 text-center">
-                        <a class="btn-default btn-large"
-                            href="{{ $how_works_section->button_link }}">{{ $how_works_section->button_text }}</a>
-                        <a class="btn-default btn-large btn-border popup-video"
-                            href="{{ asset($how_works_section->button_link_2) }}"><span>
-                                {!! $how_works_section->icon !!}
-                            </span> {{ $how_works_section->button_text_2 }}</a>
-                    </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-4 col-md-6">
+              <div class="tf__single_service" data-animation="fade-left">
+                <div class="tf__single_service_img">
+                  <div data-animation="img-blur">
+                    <img
+                      src="{{ asset('frontend/images/service_1.jpg') }}"
+                      alt="service"
+                      class="img-fluid w-100"
+                    />
+                  </div>
+                  <span><i class='bx bx-copy'></i></span>
                 </div>
+                <div class="tf__single_service_text">
+                  <a href="#">Website Design</a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore incididunt ut
+                    labore et dolore
+                  </p>
+                </div>
+              </div>
             </div>
+            <div class="col-xl-4 col-md-6">
+              <div
+                class="tf__single_service"
+                data-animation="fade-left"
+                data-delay=".25"
+              >
+                <div class="tf__single_service_img">
+                  <div data-animation="img-blur">
+                    <img
+                      src="{{ asset('frontend/images/service_2.jpg') }}"
+                      alt="service"
+                      class="img-fluid w-100"
+                    />
+                  </div>
+                  <span><i class='bx bx-cog'></i></span>
+                </div>
+                <div class="tf__single_service_text">
+                  <a href="#">Logo Design</a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore incididunt ut
+                    labore et dolore
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+              <div
+                class="tf__single_service"
+                data-animation="fade-left"
+                data-delay=".5"
+              >
+                <div class="tf__single_service_img">
+                  <div data-animation="img-blur">
+                    <img
+                      src="{{ asset('frontend/images/service_3.jpg') }}"
+                      alt="service"
+                      class="img-fluid w-100"
+                    />
+                  </div>
+                  <span><i class='bx bx-screenshot'></i></span>
+                </div>
+                <div class="tf__single_service_text">
+                  <a href="#">Apps Development</a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore incididunt ut
+                    labore et dolore
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- End Timeline-Style-Four  -->
+    </section>
+    <!--============================
+        SERVICE END
+    ==============================-->
 
-    <!-- Start Seperator Area  -->
-    <div class="chatenai-separator">
-        <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-bottom.svg') }}"
-            alt="separator">
-        <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-bottom.svg') }}"
-            alt="separator">
-    </div>
-    <!-- End Seperator Area  -->
-    @endif
 
-    @if($about_section->is_active == 1)
-    <!-- Start Split Style-1 Area  -->
-    <div class="rainbow-split-area rainbow-section-gap">
+    <!--============================
+        SKILL START
+    ==============================-->
+    <section class="tf__skill_2 pt_150" id="portfolio">
         <div class="container">
-            <div class="rainbow-splite-style">
-                <div class="split-wrapper">
-                    <div class="row g-0 radius-10 align-items-center">
-                        <div class="col-lg-12 col-xl-6 col-12">
-                            <div class="thumbnail">
-                                <img class="radius" src="{{ getPhoto($about_section->image_path) }}"
-                                    alt="split Images">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-6 col-12">
-                            <div class="split-inner">
-                                <h4 class="title" data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">{{$about_section->title}}</h4>
-                                <p class="description" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">{!! $about_section->content !!}</p>
-                                <div class="view-more-button mt--35" data-sal="slide-up" data-sal-duration="400"
-                                    data-sal-delay="400">
-                                    <a class="btn-default" href="{{$about_section->button_link}}">{{$about_section->button_text}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="row justify-content-center">
+            <div class="col-xl-10">
+              <div class="tf__common_heading tf__common_heading2 mb_120">
+                <h5>MY Skills</h5>
+                <h2 >
+                  Capturing Crafting Stories My Photography Portfolio
+                </h2>
+              </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <div
+                class="tf__single_skill_2 d-flex flex-wrap"
+                data-animation="fade-bottom"
+                data-offset="100"
+              >
+                <h2>01</h2>
+                <span class="tf__skill_2_icon"
+                  ><i class='bx bx-up-arrow-alt'></i></span>
+                <div class="tf__single_skill_2_text">
+                  <h4>Creative Agency</h4>
+                  <h5>Framer Designer & Developer</h5>
+                  <span>2020 - Present</span>
+                  <p>
+                    Nemo enim ipsam voluptatem quia desi vibe voluptas sit
+                    aspernatur aut odit aut fugit sed designer here thisnquia
+                    consequuntur magni dolores.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div
+                class="tf__single_skill_2 d-flex flex-wrap"
+                data-animation="fade-bottom"
+                data-delay=".25"
+                data-offset="100"
+              >
+                <h2>02</h2>
+                <span class="tf__skill_2_icon"
+                  ><i class='bx bx-up-arrow-alt'></i></span>
+                <div class="tf__single_skill_2_text">
+                  <h4>samsung tech</h4>
+                  <h5>Framer Designer & Developer</h5>
+                  <span>2015-2020</span>
+                  <p>
+                    Nemo enim ipsam voluptatem quia desi vibe voluptas sit
+                    aspernatur aut odit aut fugit sed designer here thisnquia
+                    consequuntur magni dolores.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div
+                class="tf__single_skill_2 d-flex flex-wrap"
+                data-animation="fade-bottom"
+                data-offset="100"
+              >
+                <h2>03</h2>
+                <span class="tf__skill_2_icon"
+                  ><i class='bx bx-up-arrow-alt'></i></span>
+                <div class="tf__single_skill_2_text">
+                  <h4>apple tech</h4>
+                  <h5>Framer Designer & Developer</h5>
+                  <span>2012-2014</span>
+                  <p>
+                    Nemo enim ipsam voluptatem quia desi vibe voluptas sit
+                    aspernatur aut odit aut fugit sed designer here thisnquia
+                    consequuntur magni dolores.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div
+                class="tf__single_skill_2 d-flex flex-wrap"
+                data-animation="fade-bottom"
+                data-delay=".25"
+                data-offset="100"
+              >
+                <h2>04</h2>
+                <span class="tf__skill_2_icon"
+                  ><i class='bx bx-up-arrow-alt'></i></span>
+                <div class="tf__single_skill_2_text">
+                  <h4>metaverse</h4>
+                  <h5>Framer Designer & Developer</h5>
+                  <span>2012-2014</span>
+                  <p>
+                    Nemo enim ipsam voluptatem quia desi vibe voluptas sit
+                    aspernatur aut odit aut fugit sed designer here thisnquia
+                    consequuntur magni dolores.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- End Split Style-1 Area  -->
+      </section>
+    <!--============================
+        SKILL END
+    ==============================-->
 
-    <!-- Start Seperator Area  -->
-    <div class="chatenai-separator">
-        <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-top.svg') }}"
-            alt="separator">
-        <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-top.svg') }}"
-            alt="separator">
-    </div>
-    <!-- End Seperator Area  -->
-    @endif
-
-    <!-- Start Pricing Area  -->
-    <div class="rainbow-pricing-area rainbow-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center" data-sal="slide-up" data-sal-duration="400"
-                        data-sal-delay="150">
-                        <h4 class="subtitle "><span class="theme-gradient">Pricing</span></h4>
-                        <h2 class="title w-600 mb--20">Commence Content Journey with AI</h2>
-                        <p class="description b1">Collaborate with AI to generate content that resonates.</p>
-                    </div>
+    <!--============================
+        PORTFOLIO START
+    ==============================-->
+    <section class="tf__portfolio pt_150" id="projects">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 order-xl-1 order-2">
+            <div class="row portfolio_slider">
+              <div class="col-xl-6">
+                <div class="tf__portfolio_img">
+                  <img
+                    src="{{ asset('frontend/images/portfolio_1.jpg') }}"
+                    alt="portfolio img"
+                    class="img-fluid w-100"
+                  />
                 </div>
-            </div>
-            <div class="wrapper">
-                {{-- @if (!empty($planYear) && $planYear->count() > 0) --}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        @if (!empty($planMonthly) && $planMonthly->count() > 0 && !empty($planYear) && $planYear->count() > 0)
-                            <nav class="chatenai-tab">
-                                <div class="tab-btn-grp nav nav-tabs text-center justify-content-center" id="nav-tab"
-                                    role="tablist">
-                                    @if (!empty($planMonthly) && $planMonthly->count() > 0)
-                                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#nav-home" type="button" role="tab"
-                                            aria-controls="nav-home" aria-selected="true">
-                                            Monthly
-                                        </button>
-                                    @endif
-                                    @if (!empty($planYear) && $planYear->count() > 0)
-                                        <button class="nav-link with-badge" id="nav-profile-tab" data-bs-toggle="tab"
-                                            data-bs-target="#nav-profile" type="button" role="tab"
-                                            aria-controls="nav-profile" aria-selected="false">
-                                            Yearly
-                                            {{-- <span class="rainbow-badge-card badge-border">20% Off</span> --}}
-                                        </button>
-                                    @endif
-                                </div>
-                            </nav>
-                        @endif
-                    </div>
+              </div>
+              <div class="col-xl-6">
+                <div class="tf__portfolio_img">
+                  <img
+                    src="{{ asset('frontend/images/portfolio_2.jpg') }}"
+                    alt="portfolio img"
+                    class="img-fluid w-100"
+                  />
                 </div>
-                {{-- @endif --}}
-                <div class="tab-content rainbow-section-gap bg-transparent bg-light" id="nav-tabContent">
-                    @if (!empty($planMonthly) && $planMonthly->count() > 0 && !empty($planYear) && $planYear->count() > 0)
-                        <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                            @include('frontend.partials.monthlyplan', ['plans' => $planMonthly])
-                        </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            @include('frontend.partials.yearlyplan', ['plans' => $planYear])
-                        </div>
-                    @elseif (!empty($planMonthly) && $planMonthly->count() > 0)
-
-                        @include('frontend.partials.monthlyplan', ['plans' => $planMonthly])
-                    @elseif (!empty($planYear) && $planYear->count() > 0)
-
-                        @include('frontend.partials.yearlyplan', ['plans' => $planYear])
-                    @endif
-                    {{-- <div class="tab-pane fade active show" id="nav-home" role="tabpanel"
-                        aria-labelledby="nav-home-tab">
-                        <div class="row row--15 mt_dec--30">
-                            @if (!empty($planMonthly) && $planMonthly->count() > 0)
-                                @foreach ($planMonthly as $plan)
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12 mt--30">
-                                        <div class="rainbow-pricing style-chatenai">
-                                            <div class="pricing-table-inner bg-flashlight">
-                                                <div class="pricing-top">
-                                                    <div class="pricing-header">
-                                                        <h4 class="title">{{ $plan->title }}</h4>
-                                                        <div class="pricing">
-                                                            <div class="price-wrapper">
-                                                                <span class="currency">$</span><span class="price pricing_price">{{ $plan->price }}</span>
-                                                            </div>
-                                                            <span class="subtitle">USD Per {{ $plan->frequency == 1 ? 'Month' : 'Year' }}</span>
-                                                        </div>
-                                                        <div class="separator-animated mt--30 mb--30"></div>
-                                                    </div>
-                                                    <div class="pricing-body">
-                                                        <ul class="list-style--1">
-                                                            @foreach ($plan->features as $feature)
-                                                                <li><i class="feather-check-circle"></i> {{ $feature->feature_name }}</li>
-                                                            @endforeach
-                                                            @if ($plan->features->isEmpty())
-                                                                <li><i class="feather-minus-circle"></i> No additional features</li>
-                                                            @endif
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="pricing-footer">
-                                                    <a class="btn-default btn-border" href="{{route('user.dashboard.checkout', $plan->id)}}">{{$plan->text_link_name}}</a>
-                                                    @if(auth()->check() && auth()->user()->current_pan_id == $plan->id)
-                                                            <a class="btn-default btn-border disabled" href="javascript:void(0);" style="pointer-events: none; opacity: 0.6;">
-                                                                Active (Current)
-                                                            </a>
-                                                            @else
-                                                                <a class="btn-default btn-border" href="{{ route('user.dashboard.checkout', $plan->id) }}">
-                                                                    {{ $plan->text_link_name }}
-                                                                </a>
-                                                            @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @endif
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                        aria-labelledby="nav-profile-tab">
-                        <div class="row row--15 mt_dec--30">
-                            @if (!empty($planYear) && $planYear->count() > 0)
-                                @foreach ($planYear as $plan)
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12 mt--30">
-                                        <div class="rainbow-pricing style-chatenai">
-                                            <div class="pricing-table-inner bg-flashlight">
-                                                <div class="pricing-top">
-                                                    <div class="pricing-header">
-                                                        <h4 class="title">{{ $plan->title }}</h4>
-                                                        <div class="pricing">
-                                                            <div class="price-wrapper">
-                                                                <span class="currency">$</span><span class="price pricing_price">{{ $plan->price }}</span>
-                                                            </div>
-                                                            <span class="subtitle">USD Per {{ $plan->frequency == 1 ? 'Month' : 'Year' }}</span>
-                                                        </div>
-                                                        <div class="separator-animated mt--30 mb--30"></div>
-                                                    </div>
-                                                    <div class="pricing-body">
-                                                        <ul class="list-style--1">
-                                                            @foreach ($plan->features as $feature)
-                                                                <li><i class="feather-check-circle"></i> {{ $feature->feature_name }}</li>
-                                                            @endforeach
-                                                            @if ($plan->features->isEmpty())
-                                                                <li><i class="feather-minus-circle"></i> No additional features</li>
-                                                            @endif
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="pricing-footer">
-                                                    <a class="btn-default btn-border" href="#">{{$plan->text_link_name}}</a>
-                                                    @if(auth()->check() && auth()->user()->current_pan_id == $plan->id)
-                                                        <a class="btn-default btn-border disabled" href="javascript:void(0);" style="pointer-events: none; opacity: 0.6;">
-                                                            Active (Current)
-                                                        </a>
-                                                    @else
-                                                        <a class="btn-default btn-border" href="{{ route('user.dashboard.checkout', $plan->id) }}">
-                                                            {{ $plan->text_link_name }}
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @endif
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-12 mt--30">
-                                <div class="rainbow-pricing style-chatenai mt--0 active">
-                                    <div class="pricing-table-inner bg-flashlight">
-                                        <div class="pricing-top">
-                                            <div class="pricing-header">
-                                                <h4 class="title">Business</h4>
-                                                <div class="pricing">
-                                                    <div class="price-wrapper">
-                                                        <span class="currency">$</span><span
-                                                            class="price">300</span>
-                                                    </div>
-                                                    <span class="subtitle">USD Per Year</span>
-                                                </div>
-                                                <div class="separator-animated animated-true mt--30 mb--30"></div>
-                                            </div>
-                                            <div class="pricing-body">
-                                                <ul class="list-style--1">
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 80,000
-                                                        Words
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 6+
-                                                        Templates
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 5+
-                                                        Languages
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> AI Blog
-                                                        generate
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> Advance
-                                                        Editor Tool
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i>
-                                                        Consistent support
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-footer">
-                                            <a class="btn-default" href="#">Purchase Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-12 mt--30">
-                                <div class="rainbow-pricing style-chatenai mt--0 active">
-                                    <div class="pricing-table-inner bg-flashlight">
-                                        <div class="pricing-top">
-                                            <div class="pricing-header">
-                                                <h4 class="title">Advanced</h4>
-                                                <div class="pricing">
-                                                    <div class="price-wrapper">
-                                                        <span class="currency">$</span><span
-                                                            class="price">500</span>
-                                                    </div>
-                                                    <span class="subtitle">USD Per Year</span>
-                                                </div>
-                                                <div class="separator-animated animated-true mt--30 mb--30"></div>
-                                            </div>
-                                            <div class="pricing-body">
-                                                <ul class="list-style--1">
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 280,000
-                                                        Words
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 6+
-                                                        Templates
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 5+
-                                                        Languages
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> AI Blog
-                                                        generate
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> Advance
-                                                        Editor Tool
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i>
-                                                        Consistent support
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-footer">
-                                            <a class="btn-default" href="#">Purchase Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-12 mt--30">
-                                <div class="rainbow-pricing style-chatenai mt--0">
-                                    <div class="pricing-table-inner bg-flashlight">
-                                        <div class="pricing-top">
-                                            <div class="pricing-header">
-                                                <h4 class="title">Enterprise</h4>
-                                                <div class="pricing">
-                                                    <div class="price-wrapper">
-                                                        <span class="price sm-text">Let's Talk</span>
-                                                    </div>
-                                                    <span class="subtitle">Per Year</span>
-                                                </div>
-                                                <div class="separator-animated mt--30 mb--30"></div>
-                                            </div>
-                                            <div class="pricing-body">
-                                                <ul class="list-style--1">
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 3,580,000
-                                                        Words
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 15+
-                                                        Templates
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> 8+
-                                                        Languages
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> AI Blog
-                                                        generate
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i> Advance
-                                                        Editor Tool
-                                                    </li>
-                                                    <li>
-                                                        <i class="feather-check-circle"></i>
-                                                        Consistent support
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-footer">
-                                            <a class="btn-default btn-border" href="#">Contact Sales</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+              </div>
+              <div class="col-xl-6">
+                <div class="tf__portfolio_img">
+                  <img
+                    src="{{ asset('frontend/images/portfolio_1.jpg') }}"
+                    alt="portfolio img"
+                    class="img-fluid w-100"
+                  />
                 </div>
+              </div>
+              <div class="col-xl-6">
+                <div class="tf__portfolio_img">
+                  <img
+                    src="{{ asset('frontend/images/portfolio_2.jpg') }}"
+                    alt="portfolio img"
+                    class="img-fluid w-100"
+                  />
+                </div>
+              </div>
             </div>
-
-            <div class="button-group mt--50 text-center">
-                <a class="btn-default btn-large btn-border" href="{{ asset('pricing') }}">View More</a>
+          </div>
+          <div class="col-xl-4 my-auto order-xl-2 order-1">
+            <div class="tf__common_heading tf__portfolio_heading">
+              <h5>gallery</h5>
+              <h2 data-text-animation="rotate-in">Latests Portfolio</h2>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                design accusantium doloremque laudantium Sed ut perspiciatis
+                unde omnis iste natus error sit voluptatem design accusantium
+                doloremque laudantium
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-    <!-- End Pricing Area  -->
+      </div>
+    </section>
+    <!--============================
+        PORTFOLIO END
+    ==============================-->
 
-    <!-- Start Seperator Area  -->
-    <div class="chatenai-separator">
-        <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-top.svg') }}"
-            alt="separator">
-        <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-top.svg') }}"
-            alt="separator">
-    </div>
-    <!-- End Seperator Area  -->
-
-    @if($faqs->count() > 0)
-    <!-- Start Accordion-2 Area  -->
-    <div class="rainbow-accordion-area rainbow-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700"
-                        data-sal-delay="100">
-                        <h4 class="subtitle "><span class="theme-gradient">Accordion</span></h4>
-                        <h2 class="title w-600 mb--20">Frequently Asked Questions</h2>
-                    </div>
-                </div>
+    <!--============================
+        TESTIMONIAL START
+    ==============================-->
+    <section class="tf__testimonial pt_145">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-5">
+            <div class="tf__common_heading tf__testimonial_heading">
+              <h5>Testomonial</h5>
+              <h2 >What our clients say?</h2>
             </div>
-            <div class="row mt--35 row--20">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="rainbow-accordion-style  accordion">
-                        <div class="accordion" id="accordionExamplea">
-
-                            @foreach ($faqs as $key => $row)
-                                <div class="accordion-item card bg-flashlight">
-                                    <h2 class="accordion-header card-header" id="heading{{ $key }}">
-                                        <button class="accordion-button {{ $key != 0 ? 'collapsed' : '' }}"
-                                            type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse{{ $key }}"
-                                            aria-expanded="{{ $key != 0 ? 'collapsed' : '' }}"
-                                            aria-controls="collapse{{ $key }}">
-                                            {{ $row->question }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapse{{ $key }}"
-                                        class="accordion-collapse collapse {{ $key == 0 ? 'show' : '' }}"
-                                        aria-labelledby="heading{{ $key }}" data-bs-parent="#accordionExamplea">
-                                        <div class="accordion-body card-body">
-                                            {{ $row->answer }}
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-    <!-- End Accordion-2 Area  -->
-
-    <!-- Start Seperator Area  -->
-    <div class="chatenai-separator">
-        <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-top.svg') }}"
-            alt="separator">
-        <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-top.svg') }}"
-            alt="separator">
-    </div>
-    <!-- End Seperator Area  -->
-    @endif
-
-    @if($brands->count() > 0)
-    <!-- Start Brands Area -->
-    <div class="rainbow-brand-area rainbow-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center sal-animate" data-sal="slide-up" data-sal-duration="700"
-                        data-sal-delay="100">
-                        <h4 class="subtitle "><span class="theme-gradient">Our Awesome Client</span></h4>
-                    </div>
+        <div class="tf__testimonial_slider">
+          <div class="row testimonial_slider">
+            <div class="col-xl-6">
+              <div class="tf__single_testimonial">
+                <div class="tf__single_testimonial_img">
+                  <img
+                    src="{{ asset('frontend/images/testimonial_1.jpg') }}"
+                    alt="testimonial"
+                    class="img-fluid w-100"
+                  />
                 </div>
+                <h4>Eleanor Pena</h4>
+                <span>Marketing Coordinator</span>
+                <p>
+                  Financial planners help people to knowledge in about how to
+                  invest and in save their moneye the most efficient way eve
+                  plan ners help people tioniio know ledige in about how.
+                </p>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 mt--10">
-                    <ul class="brand-list brand-style-2">
+            <div class="col-xl-6">
+              <div class="tf__single_testimonial">
+                <div class="tf__single_testimonial_img">
+                  <img
+                    src="{{ asset('frontend/images/testimonial_2.jpg') }}"
+                    alt="testimonial"
+                    class="img-fluid w-100"
+                  />
+                </div>
+                <h4>Eleanor Pena</h4>
+                <span>Marketing Coordinator</span>
+                <p>
+                  Financial planners help people to knowledge in about how to
+                  invest and in save their moneye the most efficient way eve
+                  plan ners help people tioniio know ledige in about how.
+                </p>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="tf__single_testimonial">
+                <div class="tf__single_testimonial_img">
+                  <img
+                    src="{{ asset('frontend/images/testimonial_1.jpg') }}"
+                    alt="testimonial"
+                    class="img-fluid w-100"
+                  />
+                </div>
+                <h4>Eleanor Pena</h4>
+                <span>Marketing Coordinator</span>
+                <p>
+                  Financial planners help people to knowledge in about how to
+                  invest and in save their moneye the most efficient way eve
+                  plan ners help people tioniio know ledige in about how.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--============================
+        TESTIMONIAL END
+    ==============================-->
 
-                        @foreach ($brands as $row)
-                            <li>
-                                <a href="#">
-                                    <img src="{{ asset($row->image) }}" alt="{{ $row->name }}">
-                                </a>
-                            </li>
-                        @endforeach
+    <!--============================
+        COUNTER START
+    ==============================-->
+    <section class="tf__counter tf__counter_2 pt_190" id="portfolio">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-xxl-4 col-md-6 col-xl-4">
+              <div
+                class="tf__single_counter tf__single_counter_2"
+                data-animation="fade-left"
+                data-offset="100"
+              >
+                <h4><span class="counter">200</span>+</h4>
+                <p>Team member</p>
+                <h5 class="tf__counter_icon tf__counter_icon_2">
+                  <i class="fas fa-users-cog" aria-hidden="true"></i>
+                </h5>
+              </div>
+            </div>
+
+
+            <div class="col-xxl-4 col-md-6 col-xl-4">
+              <div
+                class="tf__single_counter tf__single_counter_2"
+                data-animation="fade-left"
+                data-offset="100"
+                data-delay=".5"
+              >
+                <h4><span class="counter">10</span>k+</h4>
+                <p>Complete project</p>
+                <h5 class="tf__counter_icon tf__counter_icon_2">
+                  <i class="far fa-file-certificate" aria-hidden="true"></i>
+                </h5>
+              </div>
+            </div>
+
+            <div class="col-xxl-4 col-md-6 col-xl-4">
+              <div
+                class="tf__single_counter tf__single_counter_2"
+                data-animation="fade-left"
+                data-offset="100"
+                data-delay=".75"
+              >
+                <h4><span class="counter">900</span>+</h4>
+                <p>Client review</p>
+                <h5 class="tf__counter_icon tf__counter_icon_2">
+                  <i class="fas fa-users-crown" aria-hidden="true"></i>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!--============================
+        COUNTER END
+    ==============================-->
+
+
+    <!--============================
+        EXPERIANCE START
+    ==============================-->
+    <section class="tf__experiance tf__experiance_hp2 pt_175">
+        <div class="container-fluid">
+          <div class="tf__brand pl_90 pr_100">
+            <div
+              class="row justify-content-xl-between justify-content-center"
+            >
+              <div class="col-xl-2 col-sm-6 col-md-4 col-lg-4 col-6">
+                <div
+                  class="tf__brand_img"
+                >
+                  <img
+                    src="{{ asset('frontend/images/brand_6.png') }}"
+                    alt="company logo"
+                    class="img-fluid w-100"
+                  />
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 col-md-4 col-lg-4 col-6">
+                <div
+                  class="tf__brand_img"
+                >
+                  <img
+                    src="{{ asset('frontend/images/brand_7.png') }}"
+                    alt="company logo"
+                    class="img-fluid w-100"
+                  />
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 col-md-4 col-lg-4 col-6">
+                <div
+                  class="tf__brand_img"
+                >
+                  <img
+                    src="{{ asset('frontend/images/brand_8.png') }}"
+                    alt="company logo"
+                    class="img-fluid w-100"
+                  />
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 col-md-4 col-lg-4 col-6">
+                <div
+                  class="tf__brand_img"
+                >
+                  <img
+                    src="{{ asset('frontend/images/brand_9.png') }}"
+                    alt="company logo"
+                    class="img-fluid w-100"
+                  />
+                </div>
+              </div>
+              <div class="col-xl-2 col-sm-6 col-md-4 col-lg-4 col-6">
+                <div
+                  class="tf__brand_img"
+                >
+                  <img
+                    src="{{ asset('frontend/images/brand_10.png') }}"
+                    alt="company logo"
+                    class="img-fluid w-100"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--============================
+      EXPERIANCE END
+  ==============================-->
+  
+
+    <!--============================
+        BLOG START
+    ==============================-->
+    <section class="tf__blog pt_145 pb_120">
+      <div class="container">
+        <div class="row">
+          <div class="row justify-content-center">
+            <div class="col-xl-10">
+              <div
+                class="tf__common_heading tf__common_heading2 tf__blog_heading"
+              >
+                <h5>ALL Blogs</h5>
+                <h2>
+                  From Vision to Reality My Portfolio of Accomplishments
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-4 col-md-6">
+            <div
+              class="tf__single_blog"
+              data-animation="fade-left"
+              data-offset="100"
+            >
+              <div class="tf__single_blog_img">
+                <a
+                  href="/blog-details.html"
+                  data-cursor='<i class="fa-light fa-arrow-up-right"></i>'
+                >
+                  <img
+                    src="{{ asset('frontend/images/blog_1.jpg') }}"
+                    alt="blog img"
+                    class="img-fluid w-100"
+                /></a>
+                <p>31 December, 2023</p>
+              </div>
+              <div class="tf__single_blog_text">
+                <ul class="d-flex flex-wrap">
+                  <li><i class="far fa-user"></i>By admin</li>
+                  <li><i class="far fa-comments"></i>Comments (05)</li>
+                </ul>
+                <a href="/blog-details.html" class="tf__single_blog_heading"
+                  >These cases are perfectly simple and easy</a
+                >
+
+                <a href="/blog-details.html" class="tf__common_btn tf__blog_btn"
+                  >read more<i class='bx bx-right-arrow-alt'></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div
+              class="tf__single_blog"
+              data-animation="fade-left"
+              data-delay=".25"
+              data-offset="100"
+            >
+              <div class="tf__single_blog_img">
+                <a
+                  href="/blog-details.html"
+                  data-cursor='<i class="fa-light fa-arrow-up-right"></i>'
+                >
+                  <img
+                    src="{{ asset('frontend/images/blog_2.jpg') }}"
+                    alt="blog img"
+                    class="img-fluid w-100"
+                /></a>
+                <p>31 December, 2023</p>
+              </div>
+              <div class="tf__single_blog_text">
+                <ul class="d-flex flex-wrap">
+                  <li><i class="far fa-user"></i>By admin</li>
+                  <li><i class="far fa-comments"></i>Comments (05)</li>
+                </ul>
+                <a href="/blog-details.html" class="tf__single_blog_heading"
+                  >which is the same as saying through shrinking from toil
+                </a>
+
+                <a href="/blog-details.html" class="tf__common_btn tf__blog_btn"
+                  >read more<i class='bx bx-right-arrow-alt'></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div
+              class="tf__single_blog"
+              data-animation="fade-left"
+              data-delay=".5"
+            >
+              <div class="tf__single_blog_img">
+                <a
+                  href="/blog-details.html"
+                  data-cursor='<i class="fa-light fa-arrow-up-right"></i>'
+                >
+                  <img
+                    src="{{ asset('frontend/images/blog_3.jpg') }}"
+                    alt="blog img"
+                    class="img-fluid w-100"
+                /></a>
+                <p>31 December, 2023</p>
+              </div>
+              <div class="tf__single_blog_text">
+                <ul class="d-flex flex-wrap">
+                  <li><i class="far fa-user"></i>By admin</li>
+                  <li><i class="far fa-comments"></i>Comments (05)</li>
+                </ul>
+                <a href="/blog-details.html" class="tf__single_blog_heading"
+                  >when our power of choice is design untrammelled and when</a
+                >
+
+                <a href="/blog-details.html" class="tf__common_btn tf__blog_btn"
+                  >read more<i class='bx bx-right-arrow-alt'></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--============================
+        BLOG END
+    ==============================-->
+
+    <!--============================
+        CONTACT START
+    ==============================-->
+    <section class="tf__contact pb_80">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-md-12">
+            <div class="tf__contact_area">
+              <h4 data-text-animation="rotate-in">IF YOU WANT TO UPDATE ?</h4>
+              <h4 data-text-animation="rotate-in" data-delay=".25">
+                STAY CONECTED!
+              </h4>
+              <div class="tf__contact_mail">
+                <input type="text" placeholder="Enter email address" />
+                <a href="#" class="tf__subscribtion">SUBSCRIBE NOW</a>
+              </div>
+              <div class="row justify-content-between">
+                <div class="col-xl-5 col-md-5">
+                  <div class="tf__contact_address">
+                    <h4>Contact Me</h4>
+                    <div class="tf__single_address d-flex flex-wrap">
+                      <span
+                        ><i class='bx bxs-paper-plane'></i></span>
+                      <div class="tf__address_area">
+                        <p>Old city street,USA</p>
+                        <p>1212 New york-3500</p>
+                      </div>
+                    </div>
+                    <div class="tf__single_address d-flex flex-wrap">
+                      <span><i class='bx bxs-phone-call' ></i></span>
+                      <div class="tf__address_area">
+                        <p>(+888) 123 456 765</p>
+                        <p>(+888) 123 456 765</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-5 col-md-5">
+                  <div class="tf__contact_address">
+                    <h4>OUR SERVICES</h4>
+                    <ul>
+                      <li>
+                        <a href="#"
+                          ><i class='bx bx-chevrons-right'></i
+                          ><span class="text_hover_animaiton"
+                            >UI Design</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class='bx bx-chevrons-right'></i
+                          ><span class="text_hover_animaiton"
+                            >UX Design</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class='bx bx-chevrons-right'></i
+                          ><span class="text_hover_animaiton"
+                            >Digital Marketing</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class='bx bx-chevrons-right'></i>
+                          <span class="text_hover_animaiton"
+                            >Video Editing</span
+                          ></a
+                        >
+                      </li>
                     </ul>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-    <!-- End Brands Area -->
+          </div>
 
-    <!-- Start Seperator Area  -->
-    <div class="chatenai-separator">
-        <img class="w-100 separator-dark" src="{{ asset('assets/images/separator/separator-top.svg') }}"
-            alt="separator">
-        <img class="w-100 separator-light" src="{{ asset('assets/images/light/separator/separator-top.svg') }}"
-            alt="separator">
-    </div>
-    <!-- End Seperator Area  -->
-    @endif
-
-    {{-- @if($promotion_section->is_active == 1)
-    <!-- Start Call TO Action Area  -->
-    <div class="rainbow-callto-action-area">
-        <div class="wrapper">
-            <div class="rainbow-callto-action clltoaction-style-default rainbow-section-gap">
-                <div class="container">
-                    <div class="row row--0">
-                        <div class="col-lg-12">
-                            <div class="align-items-center content-wrapper">
-                                <div class="inner">
-                                    <div class="content text-center">
-                                        <span class="theme-gradient b2 mb--30 d-inline-block">{{$promotion_section->title}}</span>
-                                        <h2 class="title" data-sal="slide-up" data-sal-duration="400"
-                                            data-sal-delay="200">{{$promotion_section->subtitle}}</h2>
-                                        <p class="description" data-sal="slide-up" data-sal-duration="400"
-                                            data-sal-delay="300">{!! $promotion_section->content !!}</p>
-                                        <div class="call-to-btn" data-sal="slide-up" data-sal-duration="400"
-                                            data-sal-delay="350">
-                                            <a class="btn-default bg-light-gradient btn-large"
-                                                href="{{$promotion_section->button_link}}">
-                                                <div class="has-bg-light"></div>
-                                                <span>{{$promotion_section->button_text}}</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div class="col-xl-6">
+            <form class="tf__form">
+              <div class="row">
+                <div class="col-xl-6">
+                  <div class="tf__single_form">
+                    <input type="text" placeholder="Name*" />
+                  </div>
                 </div>
-            </div>
-            <div class="fancy-genearate-section">
-                <div class="container">
-                    <div class="genarator-section">
-                        <ul class="genarator-card-group full-width-list ">
-                            @foreach ($promotions as $row)
-                            <li>
-                                <a href="{{$row->button_link}}"
-                                    class="genarator-card bg-flashlight-static center-align">
-                                    <div class="inner">
-                                        <div class="left-align">
-                                            <div class="img-bar">
-                                                <img src="{{ getPhoto($row->icon) }}"
-                                                    alt="{{$row->title}}">
-                                            </div>
-                                            <h5 class="title">{{$row->title}}</h5>
-                                            <span class="rainbow-demo-btn">{{$row->button_text}}</span>
-                                            @if($row->hot == 1)
-                                                <span class="rainbow-badge-card ml--10">Hot</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="col-xl-6">
+                  <div class="tf__single_form">
+                    <input type="email" placeholder="E-mail" />
+                  </div>
                 </div>
-            </div>
+                <div class="col-xl-12">
+                  <div class="tf__single_form">
+                    <input type="text" placeholder="Phone Number" />
+                  </div>
+                </div>
+                <div class="col-xl-12">
+                  <div class="tf__single_form">
+                    <textarea rows="6" placeholder="Comment"></textarea>
+                  </div>
+                </div>
+                <div class="col-xl-12">
+                  <div class="tf__single_form">
+                    <button type="submit" class="tf__common_btn">
+                      Submit<i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
-    <!-- End Call TO Action Area  -->
-    @endif --}}
+      </div>
+    </section>
+    <!--============================
+        CONTACT END
+    ==============================-->
+
 @endsection
 
 
 @push('add-js')
+
 @endpush

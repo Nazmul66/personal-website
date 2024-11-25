@@ -14,28 +14,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/subscription','subscription_store')->name('subscription');
 });
 
-Route::get('auth/discord', [DiscordController::class, 'redirectToDiscord'])->name('auth.discord');
-Route::get('auth/discord/callback', [DiscordController::class, 'handleDiscordCallback']);
-// Route::get('/dashboard', [HomesController::class, 'dashboard'])->name('dashboard');
-
 Auth::routes();
 
-    // setting
-    Route::controller(PagesController::class)->group(function () {
-        // Route::get('/blog', 'blog')->name('blog');
-        // Route::get('/blogdetails','blogDetails')->name('blogDetails');
-        Route::get('/contact','contact')->name('contact');
-        Route::post('/contact/store','contact_store')->name('contact.store');
-        Route::get('/pricing','pricing')->name('pricing');
-        Route::get('/roadmap','roadmap')->name('roadmap');
-        Route::get('/faq','faq')->name('faq');
-        Route::get('/signup','signup')->name('signup');
-        Route::get('/team','team')->name('team');
-        Route::get('/about','about')->name('about');
-        Route::get('/privacy-policy','privacy_policy')->name('privacy.policy');
-        Route::get('/terms-condition','terms_condition')->name('terms.condition');
-        Route::get('/pages/{slug}','customPage')->name('customPage');
-    });
 
 require __DIR__.'/user.php';
 require __DIR__.'/admin.php';
