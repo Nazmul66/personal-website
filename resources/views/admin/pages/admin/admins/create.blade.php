@@ -60,16 +60,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="role" class="form-label">Role<span class="text-danger">*</span></label>
-                            <select class="form-control" name="roles" style="height: auto;" required="">
-                                <option value="">Select Role</option>
-                                @foreach ($roles as $role)
-                                    <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
                             <label for="statuss" class="form-label">Status <span class="text-danger">*</span></label>
                             <select class="form-control form-select" name="status" id="statuss" style="height: auto;"
                                 required="">

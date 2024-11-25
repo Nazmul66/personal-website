@@ -31,7 +31,6 @@
                                     <th width="5%">SN</th>
                                     <th>Name</th>
                                     <th>E-mail</th>
-                                    <th>Role</th>
                                     <th>Status</th>
                                     <th width="15%">Action</th>
                                 </tr>
@@ -41,7 +40,6 @@
                                     <th width="5%">SN</th>
                                     <th>Name</th>
                                     <th>E-mail</th>
-                                    <th>Role</th>
                                     <th>Status</th>
                                     <th width="15%">Action</th>
                                 </tr>
@@ -52,11 +50,6 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
-                                        <td>
-                                            @foreach ($roles as $role)
-                                                {{ $row->hasRole($role->name) ? $role->name : '' }}
-                                            @endforeach
-                                        </td>
                                         <td>
                                             @if($row->status == 1)
                                                 <span class="text-success">Active</span>

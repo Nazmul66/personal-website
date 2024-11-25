@@ -164,67 +164,8 @@
                             </div>
 
 
-
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">PayPal Settings</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label required">Client Key</label>
-                                                    <input type="text" class="form-control" name="paypal_client_key"
-                                                        value="{{ $config[4]->config_value }}"
-                                                        placeholder="Client Key..." required="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label required">Secret</label>
-                                                    <input type="text" class="form-control" name="paypal_secret"
-                                                        value="{{ $config[5]->config_value }}" placeholder="Secret..."
-                                                        required="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Stripe Settings</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label required">Publishable Key</label>
-                                                    <input type="text" class="form-control"
-                                                        name="stripe_publishable_key"
-                                                        value="{{ $config[9]->config_value }}"
-                                                        placeholder="Publishable Key..." required="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label required">Secret</label>
-                                                    <input type="text" class="form-control" name="stripe_secret"
-                                                        value="{{ $config[10]->config_value }}" placeholder="Secret..."
-                                                        required="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            {{-- <div class="col-lg-12">
+                            {{-- Social --}}
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Social URL</h3>
@@ -234,117 +175,118 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Facebook URL <span
-                                                            class="text-danger">*</span></label>
-                                                    <input type="url" class="form-control" name="facebook_url"
+                                                    <label
+                                                        class="form-label">{{ __('Facebook URL') }}</label>
+                                                    <input type="url" class="form-control"
+                                                        name="facebook_url"
                                                         value="{{ $settings->facebook_url }}"
-                                                        placeholder="Facebook URL...">
+                                                        placeholder="{{ __('Facebook URL') }}...">
                                                     @error('facebook_url')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Youtube Url</label>
-                                                    <input type="url" class="form-control" name="youtube_url"
+                                                    <label class="form-label">{{ __('Youtube Url') }}</label>
+                                                    <input type="url" class="form-control"
+                                                        name="youtube_url"
                                                         value="{{ $settings->youtube_url }}"
-                                                        placeholder="Youtube Url...">
+                                                        placeholder="{{ __('Youtube Url') }}...">
                                                     @error('youtube_url')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Twitter Url</label>
-                                                    <input type="url" class="form-control" name="twitter_url"
+                                                    <label class="form-label">{{ __('Twitter Url') }}</label>
+                                                    <input type="url" class="form-control"
+                                                        name="twitter_url"
                                                         value="{{ $settings->twitter_url }}"
-                                                        placeholder="Twitter Url...">
+                                                        placeholder="{{ __('Twitter Url') }}...">
                                                     @error('twitter_url')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Instagram url <span
-                                                            class="text-danger">*</span></label>
-                                                    <input type="url" class="form-control" name="instagram_url"
+                                                    <label
+                                                        class="form-label">Instagram url</label>
+                                                    <input type="url" class="form-control"
+                                                        name="instagram_url"
                                                         value="{{ $settings->instagram_url }}"
                                                         placeholder="Instagram url'...">
                                                     @error('instagram_url')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Linkedin url <span
-                                                            class="text-danger">*</span></label>
-                                                    <input type="url" class="form-control" name="linkedin_url"
+                                                    <label
+                                                        class="form-label">{{ __('Linkedin url') }}</label>
+                                                    <input type="url" class="form-control"
+                                                        name="linkedin_url"
                                                         value="{{ $settings->linkedin_url }}"
-                                                        placeholder="Linkedin url...">
+                                                        placeholder="{{ __('Linkedin url') }}...">
                                                     @error('linkedin_url')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Telegram url</label>
-                                                    <input type="url" class="form-control" name="telegram_url"
+                                                    <label
+                                                        class="form-label">{{ __('Telegram url') }}</label>
+                                                    <input type="url" class="form-control"
+                                                        name="telegram_url"
                                                         value="{{ $settings->telegram_url }}"
-                                                        placeholder="Linkedin url...">
+                                                        placeholder="{{ __('Linkedin url') }}...">
                                                     @error('telegram_url')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
-                                            </div>
 
+                                            </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">WhatsApp Number</label>
-                                                    <input type="text" class="form-control" name="whatsapp_number"
+                                                    <label
+                                                        class="form-label">{{ __('WhatsApp Number') }}</label>
+                                                    <input type="text" class="form-control"
+                                                        name="whatsapp_number"
                                                         value="{{ $settings->whatsapp_number }}"
-                                                        placeholder="WhatsApp Number...">
+                                                        placeholder="{{ __('WhatsApp Number') }}...">
                                                     @error('whatsapp_number')
-                                                        <span class="help-block text-danger">{{ $message }}</span>
+                                                        <span
+                                                            class="help-block text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">General Settings</h3>
                                     </div>
+
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label required">App Mode</label>
-                                                    <select type="text" class="form-select form-control"
-                                                        placeholder="Select a payment mode" style="height: auto;"
-                                                        id="select-tags-advanced" name="app_mode" required="">
-                                                        <option value="local"
-                                                            {{ $settings->app_mode == 'local' ? 'selected' : '' }}>
-                                                            Local</option>
-                                                        <option value="live"
-                                                            {{ $settings->app_mode == 'live' ? 'selected' : '' }}>
-                                                            Live</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label class="form-label">Email</label>

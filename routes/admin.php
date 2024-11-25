@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\CustomSectionController;
 use App\Http\Controllers\Admin\InstantContentController;
 use App\Http\Controllers\Admin\GeneralSettingController;
+use App\Http\Controllers\Admin\BlogSectionController;
 use App\Http\Controllers\Admin\ContentGeneratorController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -63,7 +65,6 @@ Route::post('admin/logout', [AdminLoginController::class, 'logout'])->name('admi
 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth:admin'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
-// Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
 
         Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
         Route::get('/cc', [DashboardController::class, 'cacheClear'])->name('cacheClear');
@@ -196,6 +197,31 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::post('/update/{id}', [TestimonialController::class, 'update'])->name('update');
         Route::post('/section-update/{id}', [TestimonialController::class, 'sectionupdate'])->name('section.update');
         Route::get('/delete/{id}', [TestimonialController::class, 'delete'])->name('delete');
+    });
+
+
+    // Blogs Category
+    Route::group(['prefix' => 'blogs_category', 'as' => 'blogs_category.'], function () {
+        Route::get('/', [BlogCategoryController::class, 'index'])->name('index');
+        Route::get('/create', [BlogCategoryController::class, 'create'])->name('create');
+        Route::post('/store', [BlogCategoryController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [BlogCategoryController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [BlogCategoryController::class, 'update'])->name('update');
+        Route::get('/delete/{id}', [BlogCategoryController::class, 'delete'])->name('delete');
+        Route::get('/view/{id}', [BlogCategoryController::class, 'view'])->name('view');
+        Route::post('/toggle-status', [BlogCategoryController::class, 'toggleStatus'])->name('toggleStatus');
+        Route::post('/update-order', [BlogCategoryController::class, 'updateOrder'])->name('update.order');
+    });
+
+    // Blogs
+    Route::group(['prefix' => 'blogs', 'as' => 'blogs.'], function () {
+        Route::get('/', [BlogSectionController::class, 'index'])->name('index');
+        Route::get('/create', [BlogSectionController::class, 'create'])->name('create');
+        Route::post('/store', [BlogSectionController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [BlogSectionController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [BlogSectionController::class, 'update'])->name('update');
+        Route::post('/section-update/{id}', [BlogSectionController::class, 'sectionupdate'])->name('section.update');
+        Route::get('/delete/{id}', [BlogSectionController::class, 'delete'])->name('delete');
     });
 
 
