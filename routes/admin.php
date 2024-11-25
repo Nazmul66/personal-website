@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CustomSectionController;
 use App\Http\Controllers\Admin\InstantContentController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ContentGeneratorController;
+use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -97,7 +98,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::get('/{id}/view', [AdminController::class, 'view'])->name('view');
         Route::post('/{id}/password-update', [AdminController::class, 'passwordUpdate'])->name('password.update');
         Route::get('{id}/session-history', [AdminController::class, 'sessionView'])->name('viewSession');
-
     });
 
 
@@ -113,7 +113,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     });
 
 
-    //Custom Page
+    // Custom Page
     Route::group(['prefix' => 'cpage', 'as' => 'cpage.'], function () {
         Route::get('/', [CustomPageController::class, 'index'])->name('index');
         Route::get('create', [CustomPageController::class, 'create'])->name('create');
@@ -149,7 +149,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::get('/view/{id}', [FaqController::class, 'view'])->name('view');
         Route::post('/toggle-status', [FaqController::class, 'toggleStatus'])->name('toggleStatus');
         Route::post('/update-order', [FaqController::class, 'updateOrder'])->name('update.order');
-
     });
 
     // Brand
@@ -162,21 +161,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::get('/delete/{id}', [BrandController::class, 'delete'])->name('delete');
         Route::get('/view/{id}', [BrandController::class, 'view'])->name('view');
         Route::post('/toggle-status', [BrandController::class, 'toggleStatus'])->name('toggleStatus');
-
-    });
-
-    // Pricing
-    Route::group(['prefix' => 'pricing', 'as' => 'pricing.'], function () {
-        Route::get('/', [PricingController::class, 'index'])->name('index');
-        Route::get('/create', [PricingController::class, 'create'])->name('create');
-        Route::post('/store', [PricingController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [PricingController::class, 'edit'])->name('edit');
-        Route::post('/update/{id}', [PricingController::class, 'update'])->name('update');
-        Route::get('/delete/{id}', [PricingController::class, 'delete'])->name('delete');
-        Route::get('/view/{id}', [PricingController::class, 'view'])->name('view');
-        Route::post('/toggle-status', [PricingController::class, 'toggleStatus'])->name('toggleStatus');
-        Route::get('/duplicate/{id}', [PricingController::class, 'duplicate'])->name('duplicate');
-
     });
 
 
@@ -215,18 +199,17 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     });
 
 
-        // Projects
-        Route::group(['prefix' => 'projects', 'as' => 'projects.'], function () {
-            Route::get('/', [ProjectController::class, 'index'])->name('index');
-            Route::get('/create', [ProjectController::class, 'create'])->name('create');
-            Route::post('/store', [ProjectController::class, 'store'])->name('store');
-            Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
-            Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
-            Route::post('/section-update/{id}', [ProjectController::class, 'sectionupdate'])->name('section.update');
-            Route::get('/delete/{id}', [ProjectController::class, 'delete'])->name('delete');
-        });
+    // Projects
+    Route::group(['prefix' => 'projects', 'as' => 'projects.'], function () {
+        Route::get('/', [ProjectController::class, 'index'])->name('index');
+        Route::get('/create', [ProjectController::class, 'create'])->name('create');
+        Route::post('/store', [ProjectController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
+        Route::post('/section-update/{id}', [ProjectController::class, 'sectionupdate'])->name('section.update');
+        Route::get('/delete/{id}', [ProjectController::class, 'delete'])->name('delete');
+    });
 
-    // Generator Tool
 
     // How it works Content
     Route::group(['prefix' => 'how-works', 'as' => 'how-works.'], function () {
@@ -247,7 +230,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::get('{id}/session-history', [CustomerController::class, 'sessionView'])->name('viewSession');
         Route::get('/subscription/{id}', [CustomerController::class, 'fetchSubscriptionModal'])->name('subscriptionModal');
         Route::post('/assign-pricing', [CustomerController::class, 'assignPricing'])->name('assign.pricing');
-
     });
 
 
@@ -311,7 +293,15 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
         Route::get('{id}/delete', [BannerController::class, 'delete'])->name('delete');
     });
 
-    // Banner
+
+    // Counter
+    Route::group(['prefix' => 'counter', 'as' => 'counter.'], function () {
+        Route::get('/', [CounterController::class, 'index'])->name('index');
+        Route::post('{id}/update', [CounterController::class, 'update'])->name('update');
+    });
+
+
+    // About
     Route::group(['prefix' => 'about', 'as' => 'about.'], function () {
         Route::get('/', [AboutController::class, 'index'])->name('index');
         Route::get('{id}/view', [AboutController::class, 'view'])->name('view');

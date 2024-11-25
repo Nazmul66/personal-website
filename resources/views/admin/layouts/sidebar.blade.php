@@ -75,6 +75,13 @@
                 </li>
                 @endif
 
+                <li>
+                    <a href="{{ route('admin.counter.index') }}" class="waves-effect">
+                        <i class='bx bx-cube-alt'></i>
+                        <span key="t-brands">Counter Section</span>
+                    </a>
+                </li>
+
                 @if (Auth::user()->can('admin.banner.index') ||
                     Auth::user()->can('admin.content-generator.index') ||
                     Auth::user()->can('admin.how-works.index') ||

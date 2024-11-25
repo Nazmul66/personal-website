@@ -723,7 +723,7 @@
     <!-- End Seperator Area  -->
     @endif
 
-    @if($promotion_section->is_active == 1)
+    {{-- @if($promotion_section->is_active == 1)
     <!-- Start Call TO Action Area  -->
     <div class="rainbow-callto-action-area">
         <div class="wrapper">
@@ -778,80 +778,6 @@
                                 </a>
                             </li>
                             @endforeach
-                            {{-- <li>
-                                <a href="{{ route('user.dashboard.textGenerator') }}"
-                                    class="genarator-card bg-flashlight-static center-align">
-                                    <div class="inner">
-                                        <div class="left-align">
-                                            <div class="img-bar">
-                                                <img src="{{ asset('assets/images/generator-icon/text_line.png') }}"
-                                                    alt="AI Generator">
-                                            </div>
-                                            <h5 class="title">Text Generator</h5>
-                                            <span class="rainbow-demo-btn">Try It Now Free</span>
-
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> --}}
-                            {{-- <li>
-                                <a href="{{ route('user.dashboard.imageEditor') }}" class="genarator-card bg-flashlight-static center-align">
-                                    <div class="inner">
-                                        <div class="left-align">
-                                            <div class="img-bar">
-                                                <img src="{{ asset('assets/images/generator-icon/photo-editor_line.png') }}" alt="AI Generator">
-                                            </div>
-                                            <h5 class="title">Photo Editor</h5>
-                                            <span class="rainbow-demo-btn">Try It Now Free</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.dashboard.videoGenerator') }}" class="genarator-card bg-flashlight-static center-align">
-                                    <div class="inner">
-                                        <div class="left-align">
-                                            <div class="img-bar">
-                                                <img src="{{ asset('assets/images/generator-icon/video-camera_line.png') }}" alt="AI Generator">
-                                            </div>
-                                            <h5 class="title">Vedio Generator</h5>
-                                            <span class="rainbow-demo-btn">Try It Now Free</span>
-                                            <span class="rainbow-badge-card ml--10">Hot</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> --}}
-                            {{-- <li>
-                                <a href="{{ route('user.dashboard.emailGenerator') }}"
-                                    class="genarator-card bg-flashlight-static center-align">
-                                    <div class="inner">
-                                        <div class="left-align">
-                                            <div class="img-bar">
-                                                <img src="{{ asset('assets/images/generator-icon/email_line.png') }}"
-                                                    alt="AI Generator">
-                                            </div>
-                                            <h5 class="title">Email Writer</h5>
-                                            <span class="rainbow-demo-btn">Try It Now Free</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.dashboard.codeGenerator') }}"
-                                    class="genarator-card bg-flashlight-static center-align">
-                                    <div class="inner">
-                                        <div class="left-align">
-                                            <div class="img-bar">
-                                                <img src="{{ asset('assets/images/generator-icon/code-editor_line.png') }}"
-                                                    alt="AI Generator">
-                                            </div>
-                                            <h5 class="title">Code Generator</h5>
-                                            <span class="rainbow-demo-btn">Try It Now Free</span>
-                                            <span class="rainbow-badge-card ml--10">Hot</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -859,7 +785,7 @@
         </div>
     </div>
     <!-- End Call TO Action Area  -->
-    @endif
+    @endif --}}
 @endsection
 
 
