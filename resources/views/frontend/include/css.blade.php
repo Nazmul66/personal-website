@@ -35,33 +35,6 @@
 
 
 
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <title>Unique - Responsive vCard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Unique - Responsive vCard Template" />
-    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Unique, portfolio" />
-    <meta name="author" content="lmtheme" />
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <link rel="stylesheet" href="css/transition-animations.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/main-red.css" type="text/css">
-
-    <!-- This styles needs for demo -->
-    <link rel="stylesheet" href="preview/lmpixels-demo-panel.css" type="text/css">
-    <!-- /This styles needs for demo -->
   
-
-
-    @stack('add-css')
-  </head>
 
 

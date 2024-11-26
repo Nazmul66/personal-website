@@ -931,14 +931,8 @@ button:focus {
 
 .tf__single_testimonial::after {
   position: absolute;
-  content: "\f10e";
-  font-family: "Font Awesome 6 Pro";
+  content: "\1F677";
   font-weight: 900;
-  /* background: url(../images/testimonial_shape.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* font-size: 55px; */
   color: var(--colorPrimary);
   font-size: 40px;
   bottom: 70px;
