@@ -98,7 +98,9 @@
                                             style="width: 70px; height: 70px; object-fit: contain;">
                                     </a>
                                 </td>
-                                <td>{{ $row->icon }}</td>
+                                <td>
+                                    <span style="font-size: 32px;">{!! $row->icon !!}</span>
+                                </td>
                                 <td>{{ $row->title }}</td>
                                 <td>
                                     @if ($row->status == 1)

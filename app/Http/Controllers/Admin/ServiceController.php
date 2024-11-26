@@ -109,7 +109,7 @@ class ServiceController extends Controller
         $request->validate([
             'icon'          => 'required',
             'title'         => 'required|max:155|unique:services,title,'. $id,
-            'description'   => 'required|max:128',
+            'description'   => 'required',
             'image'         => 'image|mimes:png,jpg,jpeg,webp',
         ]);
 

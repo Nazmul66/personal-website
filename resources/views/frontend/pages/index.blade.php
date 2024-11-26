@@ -379,61 +379,68 @@
             </div>
           </div>
         </div>
+
         <div class="tf__testimonial_slider">
-          <div class="row testimonial_slider">
-            <div class="col-xl-6">
-              <div class="tf__single_testimonial">
-                <div class="tf__single_testimonial_img">
-                  <img
-                    src="{{ asset('frontend/images/testimonial_1.jpg') }}"
-                    alt="testimonial"
-                    class="img-fluid w-100"
-                  />
-                </div>
-                <h4>Eleanor Pena</h4>
-                <span>Marketing Coordinator</span>
-                <p>
-                  Financial planners help people to knowledge in about how to
-                  invest and in save their moneye the most efficient way eve
-                  plan ners help people tioniio know ledige in about how.
-                </p>
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="tf__single_testimonial">
-                <div class="tf__single_testimonial_img">
-                  <img
-                    src="{{ asset('frontend/images/testimonial_2.jpg') }}"
-                    alt="testimonial"
-                    class="img-fluid w-100"
-                  />
-                </div>
-                <h4>Eleanor Pena</h4>
-                <span>Marketing Coordinator</span>
-                <p>
-                  Financial planners help people to knowledge in about how to
-                  invest and in save their moneye the most efficient way eve
-                  plan ners help people tioniio know ledige in about how.
-                </p>
-              </div>
-            </div>
-            <div class="col-xl-6">
-              <div class="tf__single_testimonial">
-                <div class="tf__single_testimonial_img">
-                  <img
-                    src="{{ asset('frontend/images/testimonial_1.jpg') }}"
-                    alt="testimonial"
-                    class="img-fluid w-100"
-                  />
-                </div>
-                <h4>Eleanor Pena</h4>
-                <span>Marketing Coordinator</span>
-                <p>
-                  Financial planners help people to knowledge in about how to
-                  invest and in save their moneye the most efficient way eve
-                  plan ners help people tioniio know ledige in about how.
-                </p>
-              </div>
+          <div class="row ">
+            <div class="owl-carousel owl-theme" id="testimonial">
+
+                {{-- <div class="col-xl-6"> --}}
+                  <div class="tf__single_testimonial">
+                    <div class="tf__single_testimonial_img">
+                      <img
+                        src="{{ asset('frontend/images/testimonial_1.jpg') }}"
+                        alt="testimonial"
+                        class="img-fluid w-100"
+                      />
+                    </div>
+                    <h4>Eleanor Pena</h4>
+                    <span>Marketing Coordinator</span>
+                    <p>
+                      Financial planners help people to knowledge in about how to
+                      invest and in save their moneye the most efficient way eve
+                      plan ners help people tioniio know ledige in about how.
+                    </p>
+                  </div>
+                {{-- </div> --}}
+    
+                {{-- <div class="col-xl-6"> --}}
+                  <div class="tf__single_testimonial">
+                    <div class="tf__single_testimonial_img">
+                      <img
+                        src="{{ asset('frontend/images/testimonial_2.jpg') }}"
+                        alt="testimonial"
+                        class="img-fluid w-100"
+                      />
+                    </div>
+                    <h4>Eleanor Pena</h4>
+                    <span>Marketing Coordinator</span>
+                    <p>
+                      Financial planners help people to knowledge in about how to
+                      invest and in save their moneye the most efficient way eve
+                      plan ners help people tioniio know ledige in about how.
+                    </p>
+                  </div>
+                {{-- </div> --}}
+    
+                {{-- <div class="col-xl-6"> --}}
+                  <div class="tf__single_testimonial">
+                    <div class="tf__single_testimonial_img">
+                      <img
+                        src="{{ asset('frontend/images/testimonial_1.jpg') }}"
+                        alt="testimonial"
+                        class="img-fluid w-100"
+                      />
+                    </div>
+                    <h4>Eleanor Pena</h4>
+                    <span>Marketing Coordinator</span>
+                    <p>
+                      Financial planners help people to knowledge in about how to
+                      invest and in save their moneye the most efficient way eve
+                      plan ners help people tioniio know ledige in about how.
+                    </p>
+                  </div>
+                {{-- </div> --}}
+
             </div>
           </div>
         </div>
@@ -458,7 +465,7 @@
                 <h4><span class="counter">200</span>+</h4>
                 <p>Team member</p>
                 <h5 class="tf__counter_icon tf__counter_icon_2">
-                  <i class="fas fa-users-cog" aria-hidden="true"></i>
+                  <i class="fas fa-users"></i>
                 </h5>
               </div>
             </div>
@@ -474,7 +481,7 @@
                 <h4><span class="counter">10</span>k+</h4>
                 <p>Complete project</p>
                 <h5 class="tf__counter_icon tf__counter_icon_2">
-                  <i class="far fa-file-certificate" aria-hidden="true"></i>
+                  <i class="fas fa-file-archive"></i>
                 </h5>
               </div>
             </div>
@@ -489,7 +496,7 @@
                 <h4><span class="counter">900</span>+</h4>
                 <p>Client review</p>
                 <h5 class="tf__counter_icon tf__counter_icon_2">
-                  <i class="fas fa-users-crown" aria-hidden="true"></i>
+                  <i class="fas fa-user-friends"></i>
                 </h5>
               </div>
             </div>
@@ -822,5 +829,42 @@
 
 
 @push('add-js')
+
+<script>
+      $('#testimonial').owlCarousel({
+        loop:true,
+        margin:10,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        navText: ['<i class="bx bx-chevron-left"></i>' , '<i class="bx bx-chevron-right"></i>'],
+        responsive:{
+            0:{
+                nav: false,
+                dots: true,
+                items: 1
+            },
+            577:{
+                nav: true,
+                dots: false,
+                items: 1
+            },
+            768:{
+                nav: true,
+                dots: false,
+                items: 1
+            },
+            992:{
+                nav: true,
+                dots: false,
+                items: 2
+            },
+        }
+    })
+
+   
+</script>
 
 @endpush
